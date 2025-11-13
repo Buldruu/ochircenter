@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "cypress": "^15.6.0"
+  }
+}

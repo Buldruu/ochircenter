@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ochir Center</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">Ochir center</div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">About us</a></li>
+          <li><a href="#about" class="nav-link">Publications</a></li>
+          <li><a href="#mission" class="nav-link">Our Mission</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Ochir Center</h1>
+        <p>Making a Difference in Communities Worldwide</p>
+        <button class="cta-button" onclick="scrollToSection('about')">
+          Learn More
+        </button>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Hope Foundation is a non-governmental organization dedicated to
+              improving the lives of underprivileged communities. With over 15
+              years of experience, we have impacted thousands of lives through
+              education, healthcare, and social development programs.
+            </p>
+            <p>
+              Our mission is to create sustainable change and empower
+              individuals to reach their full potential.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat">
+              <h3>50,000+</h3>
+              <p>Lives Impacted</p>
+            </div>
+            <div class="stat">
+              <h3>100+</h3>
+              <p>Active Projects</p>
+            </div>
+            <div class="stat">
+              <h3>25+</h3>
+              <p>Countries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission">
+      <div class="container">
+        <h2>Our Mission & Vision</h2>
+        <div class="mission-content">
+          <div class="mission-box">
+            <h3>Mission</h3>
+            <p>
+              To provide quality education, healthcare, and social support to
+              underprivileged communities, empowering them to become
+              self-sufficient and contribute to society.
+            </p>
+          </div>
+          <div class="mission-box">
+            <h3>Vision</h3>
+            <p>
+              A world where every individual has equal access to opportunities,
+              education, and resources to lead a dignified and fulfilling life.
+            </p>
+          </div>
+          <div class="mission-box">
+            <h3>Values</h3>
+            <p>
+              Integrity, Compassion, Transparency, and Accountability guide
+              every action we take in serving our communities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2>Our Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-icon">📚</div>
+            <h3>Education Program</h3>
+            <p>
+              Providing quality education and scholarships to underprivileged
+              children, ensuring they have equal opportunities for learning and
+              growth.
+            </p>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">⚕️</div>
+            <h3>Healthcare Initiative</h3>
+            <p>
+              Free medical camps, health awareness programs, and accessible
+              healthcare services for remote and underserved areas.
+            </p>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">🏠</div>
+            <h3>Housing Program</h3>
+            <p>
+              Building sustainable housing solutions and improving living
+              conditions for homeless and marginalized communities.
+            </p>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">👩‍💼</div>
+            <h3>Skills Training</h3>
+            <p>
+              Vocational training and skill development programs to create
+              employment opportunities for youth.
+            </p>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">🌱</div>
+            <h3>Environmental Program</h3>
+            <p>
+              Tree plantation, waste management, and environmental conservation
+              projects for a sustainable future.
+            </p>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">👨‍👩‍👧‍👦</div>
+            <h3>Community Support</h3>
+            <p>
+              Disaster relief, food distribution, and community development
+              initiatives for vulnerable populations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="get-involved">
+      <div class="container">
+        <h2>Get Involved</h2>
+        <div class="get-involved-content">
+          <div class="involvement-card">
+            <h3>Donate</h3>
+            <p>
+              Your donation helps us continue our mission. Every contribution
+              makes a real difference.
+            </p>
+            <button
+              class="involvement-btn"
+              onclick="showMessage('Thank you for your interest in donating!')"
+            >
+              Donate Now
+            </button>
+          </div>
+          <div class="involvement-card">
+            <h3>Volunteer</h3>
+            <p>
+              Join our team of volunteers and make a direct impact in
+              communities that need it most.
+            </p>
+            <button
+              class="involvement-btn"
+              onclick="showMessage('Thank you for your interest in volunteering!')"
+            >
+              Join Us
+            </button>
+          </div>
+          <div class="involvement-card">
+            <h3>Partner With Us</h3>
+            <p>
+              Organizations and businesses can partner with us to amplify our
+              social impact.
+            </p>
+            <button
+              class="involvement-btn"
+              onclick="showMessage('Thank you for your interest in partnership!')"
+            >
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="info-item">
+              <h4>📍 Address</h4>
+              <p></p>
+            </div>
+            <div class="info-item">
+              <h4>📞 Phone</h4>
+              <p></p>
+            </div>
+            <div class="info-item">
+              <h4>✉️ Email</h4>
+              <p>tumeejav@ochircenter.org</p>
+            </div>
+            <div class="info-item">
+              <h4>🕐 Hours</h4>
+              <p>Mon - Fri: 10:00 AM - 18:00 PM</p>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="subject" placeholder="Subject" required />
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Hope Foundation. All rights reserved. | Registered NGO |
+          Tax ID: NGO-2025-001
+        </p>
+        <div class="social-links">
+          <a href="#" onclick="showMessage('Facebook page')">Facebook</a>
+          <a href="#" onclick="showMessage('Twitter page')">Twitter</a>
+          <a href="#" onclick="showMessage('Instagram page')">Instagram</a>
+          <a href="#" onclick="showMessage('LinkedIn page')">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
