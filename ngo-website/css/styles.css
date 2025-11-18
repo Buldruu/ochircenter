@@ -19,7 +19,8 @@ body {
 
 /* Navigation Bar */
 .navbar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #e2e4eb 15%, #6322fa 100%);
+  image-orientation: inherit;
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -31,13 +32,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
+.nav-dalbai {
+  position: absolute;
+  font-weight: bold;
+  color: white;
+}
 .logo {
-  font-size: 1.8rem;
+  height: 200px;
+  width: 400px;
+  justify-content: left;
   font-weight: bold;
   color: white;
 }
@@ -45,14 +52,15 @@ body {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .nav-link {
-  color: white;
+  color: #f7f7f7;
+  font-size: 1.7rem;
   text-decoration: none;
   transition: 0.3s ease;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .nav-link:hover {
