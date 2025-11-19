@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       navMenu.style.left = "0";
       navMenu.style.right = "0";
       navMenu.style.flexDirection = "column";
-      navMenu.style.backgroundColor = "#667eea";
+      navMenu.style.backgroundColor = "#ffffff";
       navMenu.style.gap = "0";
       navMenu.style.padding = "1rem";
     });
