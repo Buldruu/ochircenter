@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       navMenu.style.display =
         navMenu.style.display === "flex" ? "none" : "flex";
       navMenu.style.position = "absolute";
-      navMenu.style.top = "60px";
+      navMenu.style.top = "80px";
       navMenu.style.left = "0";
       navMenu.style.right = "0";
       navMenu.style.flexDirection = "column";
