@@ -541,3 +541,30 @@ body {
     font-size: 1.8rem;
   }
 }
+.nav-lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-text {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.75;
+  transition: 0.2s;
+}
+
+.lang-text:hover,
+.lang-text.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.divider {
+  color: #fff;
+  opacity: 0.4;
+}
+
