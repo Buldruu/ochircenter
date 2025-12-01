@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
       if (navMenu) {
-        navMenu.style.display = "auto";
+        navMenu.style.display = "none";
       }
     });
   });
