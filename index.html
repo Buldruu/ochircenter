@@ -4,34 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ochir Center</title>
-    <link rel="stylesheet" href="ngo-website/css/styles.css" />
-    <link rel="icon" type="image/png" href="website_logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="website_logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
 
-<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
 
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#0E2A4A">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/android-chrome-512x512.png"
+    />
 
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0E2A4A" />
   </head>
   <body>
+    <!-- Language Switch -->
+    <div class="lang-switch" style="text-align: right; margin: 10px 20px">
+      <button data-change-lang="mn">Монгол</button>
+      <button data-change-lang="en">English</button>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="nav-container">
-        <div><img class="logo" src="clipart.png" alt="" /></div>
+        <div>
+          <img class="logo" src="clipart.png" alt="Ochir Center logo" />
+        </div>
         <ul class="nav-menu">
-          <li><a href="#home" class="nav-link">Бидний тухай</a></li>
-          <li><a href="#about" class="nav-link">Нийтлэлүүд</a></li>
-          <li><a href="#mission" class="nav-link">Манай Зорилго</a></li>
-          <li><a href="#projects" class="nav-link">Төслүүд</a></li>
-          <li><a href="#contact" class="nav-link">Холбоо барих</a></li>
+          <li><a href="#home" class="nav-link" data-i18n="nav.about"></a></li>
+          <li>
+            <a href="#mission" class="nav-link" data-i18n="nav.mission"></a>
+          </li>
+          <li>
+            <a href="#projects" class="nav-link" data-i18n="nav.projects"></a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-link" data-i18n="nav.contact"></a>
+          </li>
         </ul>
+        <li class="nav-lang-switch">
+  <button data-change-lang="mn" class="lang-text">MN</button>
+  <span class="divider">|</span>
+  <button data-change-lang="en" class="lang-text">EN</button>
+</li>
         <div class="hamburger">
           <span></span>
           <span></span>
@@ -43,36 +71,27 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-        <h1>Очир Төвд тавтай морилно уу</h1>
-        <p>Дэлхийн өнцөг булан бүрт үндэсний үйлдвэрлэлээ түгээцгээе</p>
+        <h1 data-i18n="hero.title"></h1>
+        <p data-i18n="hero.subtitle"></p>
       </div>
     </section>
-    
+
+    <!-- Mission / Capabilities -->
     <section id="mission" class="mission">
       <div class="container">
-        <h2>Манай Чадавхи ба Хүрээ, Чадварууд</h2>
+        <h2 data-i18n="mission.title"></h2>
         <div class="mission-content">
           <div class="mission-box">
-            <h3>Чадавхи</h3>
-            <p>
-              Улс дамнасан хамтын ажиллагаа, технологи ба мэдлэгийн солилцоо
-            </p>
+            <h3 data-i18n="mission.capability.title"></h3>
+            <p data-i18n="mission.capability.text"></p>
           </div>
           <div class="mission-box">
-            <h3>Цар хүрээ</h3>
-            <p>
-              Монголын бизнес эрхлэгчид, АНУ-ын түншүүд, олон улсын зөвлөхүүд
-            </p>
+            <h3 data-i18n="mission.scope.title"></h3>
+            <p data-i18n="mission.scope.text"></p>
           </div>
           <div class="mission-box">
-            <h3>Чадварууд</h3>
-            <p>
-              Арга хэмжээ зохион байгуулах: Форум, үзэсгэлэн, экспо зэрэг
-              бизнесийн арга хэмжээг зохион байгуулах Менторшип ба сургалт:
-              Экспертүүдийн мэдлэг, туршлагаас суралцах боломж Мэргэжлийн
-              зөвлөгөө: Хууль, санхүү, татварын асуудлаар Зах зээл холбох:
-              Монгол брэндийг АНУ болон дэлхийн зах зээлд сурталчлах
-            </p>
+            <h3 data-i18n="mission.skills.title"></h3>
+            <p data-i18n="mission.skills.text"></p>
           </div>
         </div>
       </div>
@@ -81,22 +100,22 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
       <div class="container">
-        <h2>Манай төслүүд</h2>
+        <h2 data-i18n="projects.title"></h2>
         <div class="projects-grid">
           <div class="project-card">
             <div class="project-icon">🌐</div>
-            <h3>Олон улс дамнасан стратегийн түншлэл</h3>
-            <p>Олон салбарын бизнесийг нэгтгэсэн хамтын ажиллагааны орчин</p>
+            <h3 data-i18n="projects.card1.title"></h3>
+            <p data-i18n="projects.card1.text"></p>
           </div>
           <div class="project-card">
             <div class="project-icon">🤝</div>
-            <h3>Олон улсын түвшний зөвлөхүүд ба бизнесийн манлайлагчид</h3>
-            <p>АНУ дахь Монгол бизнес эрхлэгчдийн шууд оролцоо</p>
+            <h3 data-i18n="projects.card2.title"></h3>
+            <p data-i18n="projects.card2.text"></p>
           </div>
           <div class="project-card">
             <div class="project-icon">✈️🗽</div>
-            <h3>Дэлхийн брэнд</h3>
-            <p>Монгол брэндийг дэлхийд таниулах туршлага</p>
+            <h3 data-i18n="projects.card3.title"></h3>
+            <p data-i18n="projects.card3.text"></p>
           </div>
         </div>
       </div>
@@ -105,23 +124,15 @@
     <!-- Get Involved Section -->
     <section class="get-involved">
       <div class="container">
-        <h2>Үндэсний үйлдвэрийн агентлагтай хамтран ажиллах боломжууд</h2>
+        <h2 data-i18n="involved.title"></h2>
         <div class="get-involved-content">
           <div class="involvement-card">
-            <h3>Хамтрах боломжууд</h3>
-            <p>
-              АНУ-ын зах зээлд гаргах Төсөл, хөтөлбөрүүдэд хамтран оролцож шинэ
-              боломж эрэлхийлэх Экспорт, импортын чиглэлээр сургалт, зөвлөгөө
-              өгөх Туршлага, технологи, инновацыг нутагшуулах
-            </p>
+            <h3 data-i18n="involved.card1.title"></h3>
+            <p data-i18n="involved.card1.text"></p>
           </div>
           <div class="involvement-card">
-            <h3>Хамтын ажиллагааны давуу талууд</h3>
-            <p>
-              АНУ-ын зах зээлд нэвтрэх, борлуулалтыг өргөжүүлэх Санхүүжилт,
-              хөрөнгө оруулалт, бизнесийн түншлэлээ өргөжүүлэх боломж ЖДҮ-ийн
-              тогтвортой өсөлт, өрсөлдөх чадварыг нэмэгдүүлэх
-            </p>
+            <h3 data-i18n="involved.card2.title"></h3>
+            <p data-i18n="involved.card2.text"></p>
           </div>
         </div>
       </div>
@@ -130,33 +141,57 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2>Бидэнтэй холбогдох</h2>
+        <h2 data-i18n="contact.title"></h2>
         <div class="contact-content">
           <div class="contact-info">
             <div class="info-item">
-              <h4>📍 Хаяг</h4>
-              <p>Хүннү гудамж 430, БЗД - 26 хороо, May seven office 501тоот</p>
+              <h4 data-i18n="contact.address.title"></h4>
+              <p data-i18n="contact.address.text"></p>
             </div>
             <div class="info-item">
-              <h4>📞 Утасны дугаар</h4>
-              <p>99682882 ,</p>
+              <h4 data-i18n="contact.phone.title"></h4>
+              <p data-i18n="contact.phone.text"></p>
             </div>
             <div class="info-item">
-              <h4>✉️ Email</h4>
-              <p>ceo@ochircenter.org</p>
-              <p>ochircenter.info@gmail.com</p>
+              <h4 data-i18n="contact.email.title"></h4>
+              <p data-i18n="contact.email.text1"></p>
+              <p data-i18n="contact.email.text2"></p>
             </div>
             <div class="info-item">
-              <h4>🕐 Ажлын цаг</h4>
-              <p>Mon - Fri: 10:00 AM - 18:00 PM</p>
+              <h4 data-i18n="contact.hours.title"></h4>
+              <p data-i18n="contact.hours.text"></p>
             </div>
           </div>
           <form class="contact-form" id="contactForm">
-            <input type="text" placeholder="Өөрийн нэр" required />
-            <input type="email" placeholder="Майл хаяг" required />
-            <input type="subject" placeholder="Зорилго" required />
-            <textarea placeholder="Мэдээлэл" rows="5" required></textarea>
-            <button type="submit" class="submit-btn">Илгээх</button>
+            <input
+              type="text"
+              required
+              data-i18n-placeholder="form.name"
+              placeholder="Өөрийн нэр"
+            />
+            <input
+              type="email"
+              required
+              data-i18n-placeholder="form.email"
+              placeholder="Майл хаяг"
+            />
+            <input
+              type="text"
+              required
+              data-i18n-placeholder="form.subject"
+              placeholder="Зорилго"
+            />
+            <textarea
+              rows="5"
+              required
+              data-i18n-placeholder="form.message"
+              placeholder="Мэдээлэл"
+            ></textarea>
+            <button
+              type="submit"
+              class="submit-btn"
+              data-i18n="form.submit"
+            ></button>
           </form>
         </div>
       </div>
@@ -165,7 +200,7 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; Манай интернэт орчин дахь хаяг</p>
+        <p data-i18n="footer.text"></p>
         <div class="social-links">
           <a href="#" onclick="showMessage('Facebook page')">Facebook</a>
           <a href="#" onclick="showMessage('Twitter page')">Twitter</a>
@@ -174,8 +209,199 @@
         </div>
       </div>
     </footer>
-<script> window.chtlConfig = { chatbotId: "4724545855" } </script>
-<script async data-id="4724545855" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
-    <script src="ngo-website/js/script.js"></script>
+
+    <!-- Chatbot -->
+    <script>
+      window.chtlConfig = { chatbotId: "4724545855" };
+    </script>
+    <script
+      async
+      data-id="4724545855"
+      id="chtl-script"
+      type="text/javascript"
+      src="https://chatling.ai/js/embed.js"
+    ></script>
+
+    <!-- Site script -->
+    <script src="js/script.js"></script>
+
+    <!-- i18next -->
+    <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+
+    <script>
+      const resources = {
+        en: {
+          translation: {
+            "nav.about": "About us",
+            "nav.mission": "Our Mission",
+            "nav.projects": "Projects",
+            "nav.contact": "Contact",
+
+            "hero.title": "Welcome to Ochir Center",
+            "hero.subtitle": "Let’s bring Mongolian production to the world",
+
+            "mission.title": "Our Capabilities, Reach and Skills",
+            "mission.capability.title": "Capabilities",
+            "mission.capability.text":
+              "Cross-border cooperation, technology and knowledge exchange.",
+            "mission.scope.title": "Scope",
+            "mission.scope.text":
+              "Mongolian entrepreneurs, U.S. partners, and international consultants.",
+            "mission.skills.title": "Skills",
+            "mission.skills.text":
+              "Organizing forums, exhibitions and expos, providing mentorship and training, professional consulting (legal, finance, tax), and connecting Mongolian brands to U.S. and global markets.",
+
+            "projects.title": "Our Projects",
+            "projects.card1.title": "Cross-border strategic partnerships",
+            "projects.card1.text":
+              "A collaborative environment connecting businesses across sectors.",
+            "projects.card2.title":
+              "Global-level advisors and business leaders",
+            "projects.card2.text":
+              "Direct participation of Mongolian entrepreneurs in the United States.",
+            "projects.card3.title": "Global brand",
+            "projects.card3.text":
+              "Experience in promoting Mongolian brands on the world stage.",
+
+            "involved.title":
+              "Collaboration opportunities with the National Industry Agency",
+            "involved.card1.title": "Ways to cooperate",
+            "involved.card1.text":
+              "Partner on projects and programs to enter the U.S. market, provide export–import training and consulting, and localize technology and innovation.",
+            "involved.card2.title": "Benefits of cooperation",
+            "involved.card2.text":
+              "Access and expand sales in the U.S. market, increase financing and partnerships, and support sustainable growth and competitiveness of SMEs.",
+
+            "contact.title": "Contact us",
+            "contact.address.title": "📍 Address",
+            "contact.address.text":
+              "Khunnu Street 430, Bayanzurkh District 26, May Seven Office, Room 501",
+            "contact.phone.title": "📞 Phone",
+            "contact.phone.text": "99682882",
+            "contact.email.title": "✉️ Email",
+            "contact.email.text1": "ceo@ochircenter.org",
+            "contact.email.text2": "ochircenter.info@gmail.com",
+            "contact.hours.title": "🕐 Working hours",
+            "contact.hours.text": "Mon – Fri: 10:00 AM – 6:00 PM",
+
+            "form.name": "Your name",
+            "form.email": "Email address",
+            "form.subject": "Subject",
+            "form.message": "Message",
+            "form.submit": "Send",
+
+            "footer.text": "© Ochir Center – Our presence on the web",
+          },
+        },
+        mn: {
+          translation: {
+            "nav.about": "Бидний тухай",
+            "nav.mission": "Манай Зорилго",
+            "nav.projects": "Төслүүд",
+            "nav.contact": "Холбоо барих",
+
+            "hero.title": "Очир Төвд тавтай морилно уу",
+            "hero.subtitle":
+              "Дэлхийн өнцөг булан бүрт үндэсний үйлдвэрлэлээ түгээцгээе",
+
+            "mission.title": "Манай Чадавхи ба Хүрээ, Чадварууд",
+            "mission.capability.title": "Чадавхи",
+            "mission.capability.text":
+              "Улс дамнасан хамтын ажиллагаа, технологи ба мэдлэгийн солилцоо.",
+            "mission.scope.title": "Цар хүрээ",
+            "mission.scope.text":
+              "Монголын бизнес эрхлэгчид, АНУ-ын түншүүд, олон улсын зөвлөхүүд.",
+            "mission.skills.title": "Чадварууд",
+            "mission.skills.text":
+              "Форум, үзэсгэлэн, экспо зэрэг бизнесийн арга хэмжээ зохион байгуулах, менторшип ба сургалт, хууль, санхүү, татварын мэргэжлийн зөвлөгөө өгөх, Монгол брэндийг АНУ болон дэлхийн зах зээлд сурталчлах.",
+
+            "projects.title": "Манай төслүүд",
+            "projects.card1.title": "Олон улс дамнасан стратегийн түншлэл",
+            "projects.card1.text":
+              "Олон салбарын бизнесийг нэгтгэсэн хамтын ажиллагааны орчин.",
+            "projects.card2.title":
+              "Олон улсын түвшний зөвлөхүүд ба бизнесийн манлайлагчид",
+            "projects.card2.text":
+              "АНУ дахь Монгол бизнес эрхлэгчдийн шууд оролцоо.",
+            "projects.card3.title": "Дэлхийн брэнд",
+            "projects.card3.text": "Монгол брэндийг дэлхийд таниулах туршлага.",
+
+            "involved.title":
+              "Үндэсний үйлдвэрийн агентлагтай хамтран ажиллах боломжууд",
+            "involved.card1.title": "Хамтрах боломжууд",
+            "involved.card1.text":
+              "АНУ-ын зах зээлд гаргах төсөл, хөтөлбөрүүдэд хамтран оролцох, экспорт, импортын чиглэлээр сургалт, зөвлөгөө өгөх, туршлага, технологи, инновацыг нутагшуулах.",
+            "involved.card2.title": "Хамтын ажиллагааны давуу талууд",
+            "involved.card2.text":
+              "АНУ-ын зах зээлд нэвтрэх, борлуулалтыг өргөжүүлэх, санхүүжилт, хөрөнгө оруулалт, бизнесийн түншлэлээ өргөжүүлэх, ЖДҮ-ийн тогтвортой өсөлт, өрсөлдөх чадварыг нэмэгдүүлэх.",
+
+            "contact.title": "Бидэнтэй холбогдох",
+            "contact.address.title": "📍 Хаяг",
+            "contact.address.text":
+              "Хүннү гудамж 430, БЗД - 26 хороо, May seven office 501тоот",
+            "contact.phone.title": "📞 Утасны дугаар",
+            "contact.phone.text": "99682882",
+            "contact.email.title": "✉️ Email",
+            "contact.email.text1": "ceo@ochircenter.org",
+            "contact.email.text2": "ochircenter.info@gmail.com",
+            "contact.hours.title": "🕐 Ажлын цаг",
+            "contact.hours.text": "Mon - Fri: 10:00 AM - 18:00 PM",
+
+            "form.name": "Өөрийн нэр",
+            "form.email": "Майл хаяг",
+            "form.subject": "Зорилго",
+            "form.message": "Мэдээлэл",
+            "form.submit": "Илгээх",
+
+            "footer.text": "© Манай интернэт орчин дахь хаяг",
+          },
+        },
+      };
+
+      function updateContent() {
+        // text content
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          el.innerHTML = i18next.t(key);
+        });
+
+        // placeholders
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          el.placeholder = i18next.t(key);
+        });
+      }
+
+      function changeLanguage(lang) {
+        i18next.changeLanguage(lang, () => {
+          try {
+            localStorage.setItem("siteLang", lang);
+          } catch (e) {}
+          updateContent();
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("siteLang") || "en"; // default EN
+
+        i18next.init(
+          {
+            lng: savedLang,
+            debug: false,
+            resources,
+          },
+          () => {
+            updateContent();
+          }
+        );
+
+        document.querySelectorAll("[data-change-lang]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-change-lang");
+            changeLanguage(lang);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
