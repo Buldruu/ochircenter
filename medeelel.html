@@ -539,14 +539,25 @@
           .forEach((e) => {
             const el = document.createElement("div");
             el.className = "event";
+            const titleHtml = e.link
+              ? `<a class="event-link" href="${e.link}">${e.title}</a>`
+              : `<div class="event-title">${e.title}</div>`;
+
+            const ctaHtml = e.link
+              ? `<a class="event-cta" href="${e.link}">${
+                  e.linkText || "Шилжих"
+                }</a>`
+              : "";
+
             el.innerHTML = `
-            <div class="event-top">
-              <div class="event-title">${e.title}</div>
-              <span class="${badgeClass(e.type)}">${e.type.toUpperCase()}</span>
-            </div>
-            <div class="event-meta">${e.time ? e.time : ""}</div>
-            <div class="event-desc">${e.desc ? e.desc : ""}</div>
-          `;
+  <div class="event-top">
+    <div class="event-title">${titleHtml}</div>
+    <span class="${badgeClass(e.type)}">${e.type.toUpperCase()}</span>
+  </div>
+  <div class="event-meta">${e.time ? e.time : ""}</div>
+  <div class="event-desc">${e.desc ? e.desc : ""}</div>
+  ${ctaHtml}
+`;
             eventsList.appendChild(el);
           });
       }
