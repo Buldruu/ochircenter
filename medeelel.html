@@ -340,9 +340,46 @@
         border-color: transparent;
         background: #fff;
       }
+      .back-container {
+        max-width: var(--wrap-max);
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        background: #ffffff;
+        color: #111827;
+
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: 800;
+
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .back-btn:hover {
+        background: #111827;
+        color: #ffffff;
+        border-color: #111827;
+        transform: translateX(-3px);
+      }
+
+      .back-btn:active {
+        transform: translateX(-1px);
+      }
     </style>
   </head>
   <body>
+    <div class="back-container">
+      <a href="index.html" class="back-btn" data-i18n="info.back"></a>
+    </div>
     <div class="wrap">
       <!-- Calendar -->
       <section class="card">
