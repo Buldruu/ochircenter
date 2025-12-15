@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мэдээллийн Хэсэг</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: #f5f7fa;
+        color: #333;
+        line-height: 1.7;
+      }
+
+      .info-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+
+      .info-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #4c3aff;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .info-subtitle {
+        text-align: center;
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .info-card {
+        background: white;
+        padding: 24px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        transition: 0.25s ease;
+        border: 1px solid #e5e7eb;
+      }
+
+      .info-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .info-card h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #4c3aff;
+        margin-bottom: 10px;
+      }
+
+      .info-card p {
+        font-size: 15px;
+        color: #555;
+      }
+
+      .back-btn {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 12px 26px;
+        background: #4c3aff;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: 0.2s;
+      }
+
+      .back-btn:hover {
+        background: #3728cc;
+      }
+      .nav-lang-switch {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+        justify-content: end;}
+      .lang-text {
+        background: none;
+        border: none;
+        font-size: 0.95rem;
+        cursor: pointer;
+        color: #3728cc;
+        opacity: 0.75;
+        transition: 0.2s;
+      }
+
+      .lang-text:hover,
+      .lang-text.active {
+        opacity: 1;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="info-page">
+      <h1 class="info-title" data-i18n="info.title"></h1>
+      <li class="nav-lang-switch">
+        <button data-change-lang="mn" class="lang-text">MN</button>
+        <span class="divider">|</span>
+        <button data-change-lang="en" class="lang-text">EN</button>
+      </li>
+      <p class="info-subtitle" data-i18n="info.subtitle"></p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3 data-i18n="info.card1.title"></h3>
+          <p data-i18n="info.card1.content"></p>
+        </div>
+        <div class="info-card">
+          <h3 data-i18n="info.card2.title"></h3>
+          <p data-i18n="info.card2.content"></p>
+        </div>
+
+        <div class="info-card">
+          <h3 data-i18n="info.card3.title"></h3>
+          <p data-i18n="info.card3.content"></p>
+        </div>
+
+        <div class="info-card">
+          <h3 data-i18n="info.card4.title"></h3>
+          <p data-i18n="info.card4.content"></p>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-btn" data-i18n="info.back"></a>
+    </div>
+    <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+    <script>
+      const resources = {
+        en: {
+          translation: {
+            "info.title": "Information Section",
+            "info.subtitle":
+              "All details about your organization, projects, and activities in one place.",
+            "info.card1.title": "1. Introduction",
+            "info.card1.content":
+              "This section contains information about the organization's mission, vision, and current activities.",
+            "info.card2.title": "2. Activities",
+            "info.card2.content":
+              "Details about ongoing projects, internal and external collaborations, and developments.",
+            "info.card3.title": "3. Metrics & Statistics",
+            "info.card3.content":
+              "Growth, statistics, results, numerical data, graphs, and related sections will be placed here.",
+            "info.card4.title": "4. Contact Information",
+            "info.card4.content":
+              "Address, phone number, email, responsible personnel, and other contact details.",
+            "info.back": "Back",
+          },
+        },
+        mn: {
+          translation: {
+            "info.title": "Мэдээллийн Хэсэг",
+            "info.subtitle":
+              "Танай байгууллага, төсөл, үйл ажиллагаатай холбоотой дэлгэрэнгүй мэдээллийг нэг дороос.",
+            "info.card1.title": "1. Танилцуулга",
+            "info.card1.content":
+              "Энэ хэсэгт байгууллагын зорилго, эрхэмлэл, өнөөгийн үйл ажиллагааны чиглэлийн тухай мэдээлэл байрлана.",
+            "info.card2.title": "2. Үйл ажиллагаа",
+            "info.card2.content":
+              "Явагдаж буй төслүүд, дотоод болон гадаад хамтын ажиллагаа, хөгжүүлэлтүүдийн мэдээлэл.",
+            "info.card3.title": "3. Үзүүлэлт ба статистик",
+            "info.card3.content":
+              "Өсөлт, статистик, үр дүн, тоон мэдээлэл, график болон дата-тай холбогдсон хэсгүүдийг энд байрлуулна.",
+            "info.card4.title": "4. Холбоо барих",
+            "info.card4.content":
+              "Хаяг, утас, имэйл, хариуцсан ажилтан зэрэг мэдээлэл.",
+            "info.back": "Буцах",
+          },
+        },
+      };
+      function updateContent() {
+        // text content
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          el.innerHTML = i18next.t(key);
+        });
+
+        // placeholders
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          el.placeholder = i18next.t(key);
+        });
+      }
+
+      function changeLanguage(lang) {
+        i18next.changeLanguage(lang, () => {
+          try {
+            localStorage.setItem("siteLang", lang);
+          } catch (e) {}
+          updateContent();
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("siteLang") || "en"; // default EN
+
+        i18next.init(
+          {
+            lng: savedLang,
+            debug: false,
+            resources,
+          },
+          () => {
+            updateContent();
+          }
+        );
+
+        document.querySelectorAll("[data-change-lang]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-change-lang");
+            changeLanguage(lang);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
