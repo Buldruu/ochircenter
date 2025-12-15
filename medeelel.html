@@ -3,145 +3,709 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Мэдээллийн Хэсэг</title>
-
+    <title>Календарь Мэдээлэл</title>
     <style>
       * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", sans-serif;
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --wrap-max: 1250px;
+        --card-pad: 22px;
+        --gap: 18px;
+
+        --title: 24px;
+        --sub: 14px;
+
+        --btn-fs: 14px;
+        --btn-py: 10px;
+        --btn-px: 14px;
+
+        --weekday: 14px;
+
+        --day-min-h: 112px;
+        --day-pad: 14px;
+        --day-num: 18px;
+
+        --dot: 10px;
+
+        --side-title: 18px;
+
+        --event-title: 16px;
+        --event-meta: 13px;
+        --event-desc: 14px;
+        --badge: 12px;
       }
 
       body {
-        background: #f5f7fa;
-        color: #333;
-        line-height: 1.7;
+        background: #f5f7fb;
+        color: #111827;
+        padding: 34px 18px;
       }
 
-      .info-page {
-        max-width: 1200px;
+      .wrap {
+        max-width: var(--wrap-max);
         margin: 0 auto;
-        padding: 60px 20px;
-      }
-
-      .info-title {
-        font-size: 36px;
-        font-weight: 700;
-        color: #4c3aff;
-        text-align: center;
-        margin-bottom: 10px;
-      }
-
-      .info-subtitle {
-        text-align: center;
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 40px;
-      }
-
-      .info-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--gap);
+      }
+      @media (max-width: 900px) {
+        .wrap {
+          grid-template-columns: 1fr;
+        }
       }
 
-      .info-card {
-        background: white;
-        padding: 24px;
-        border-radius: 14px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-        transition: 0.25s ease;
+      .card {
+        background: #fff;
         border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        padding: var(--card-pad);
       }
 
-      .info-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
-      }
-
-      .info-card h3 {
-        font-size: 20px;
-        font-weight: 600;
-        color: #4c3aff;
-        margin-bottom: 10px;
-      }
-
-      .info-card p {
-        font-size: 15px;
-        color: #555;
-      }
-
-      .back-btn {
-        display: inline-block;
-        margin-top: 40px;
-        padding: 12px 26px;
-        background: #4c3aff;
-        color: white;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 15px;
-        transition: 0.2s;
-      }
-
-      .back-btn:hover {
-        background: #3728cc;
-      }
-      .nav-lang-switch {
+      .cal-header {
         display: flex;
-        align-items: flex-end;
-        gap: 6px;
-        justify-content: end;}
-      .lang-text {
-        background: none;
-        border: none;
-        font-size: 0.95rem;
-        cursor: pointer;
-        color: #3728cc;
-        opacity: 0.75;
-        transition: 0.2s;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
       }
 
-      .lang-text:hover,
-      .lang-text.active {
-        opacity: 1;
-        font-weight: 600;
+      .cal-title {
+        font-size: var(--title);
+        font-weight: 800;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        text-align: left;
+      }
+      .cal-title:hover {
+        text-decoration: underline;
+      }
+
+      .cal-sub {
+        font-size: var(--sub);
+        color: #6b7280;
+        margin-top: 4px;
+      }
+
+      .cal-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .btn {
+        border: 1px solid #111827;
+        background: #111827;
+        color: #fff;
+        padding: var(--btn-py) var(--btn-px);
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: var(--btn-fs);
+      }
+      .btn.secondary {
+        background: #fff;
+        color: #111827;
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .weekdays,
+      .days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 12px;
+      }
+
+      .weekdays div {
+        text-align: center;
+        font-size: var(--weekday);
+        color: #6b7280;
+        padding: 10px 0;
+        font-weight: 800;
+      }
+
+      .day {
+        min-height: var(--day-min-h);
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: var(--day-pad);
+        background: #fff;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s ease;
+      }
+      .day:hover {
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+      .day.muted {
+        opacity: 0.45;
+        cursor: default;
+        background: #f9fafb;
+      }
+      .day.selected {
+        outline: 3px solid #4c3aff;
+        border-color: transparent;
+      }
+      .day-num {
+        font-weight: 900;
+        font-size: var(--day-num);
+      }
+
+      .dots {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .dot {
+        width: var(--dot);
+        height: var(--dot);
+        border-radius: 999px;
+        background: #4c3aff;
+      }
+      .dot.warn {
+        background: #f59e0b;
+      }
+      .dot.danger {
+        background: #ef4444;
+      }
+      .dot.success {
+        background: #10b981;
+      }
+
+      .side-title {
+        font-size: var(--side-title);
+        font-weight: 900;
+        margin-bottom: 8px;
+      }
+      .side-sub {
+        font-size: var(--sub);
+        color: #6b7280;
+        margin-bottom: 14px;
+      }
+
+      .event {
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 14px;
+        margin-bottom: 12px;
+        background: #fff;
+      }
+      .event-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .event-title {
+        font-weight: 900;
+        font-size: var(--event-title);
+      }
+
+      .badge {
+        font-size: var(--badge);
+        font-weight: 900;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid #e5e7eb;
+        color: #111827;
+        background: #f9fafb;
+        white-space: nowrap;
+      }
+      .badge.warn {
+        background: #fff7ed;
+        border-color: #fdba74;
+      }
+      .badge.danger {
+        background: #fef2f2;
+        border-color: #fca5a5;
+      }
+      .badge.success {
+        background: #ecfdf5;
+        border-color: #6ee7b7;
+      }
+
+      .event-meta {
+        font-size: var(--event-meta);
+        color: #6b7280;
+        margin-bottom: 8px;
+      }
+      .event-desc {
+        font-size: var(--event-desc);
+        color: #374151;
+        line-height: 1.6;
+      }
+      .empty {
+        color: #6b7280;
+        font-size: var(--event-desc);
+        padding: 12px;
+        border: 1px dashed #d1d5db;
+        border-radius: 14px;
+        background: #fafafa;
+      }
+
+      @media (max-width: 520px) {
+        :root {
+          --title: 20px;
+          --day-min-h: 96px;
+          --day-num: 16px;
+          --gap: 14px;
+        }
+        .weekdays,
+        .days {
+          gap: 10px;
+        }
+      }
+
+      /* ===== Year / Month dropdown ===== */
+      .ym-wrap {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .ym-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .ym-btn:hover {
+        text-decoration: underline;
+      }
+
+      .ym-sep {
+        font-weight: 900;
+        opacity: 0.5;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        min-width: 260px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        padding: 12px;
+        display: none;
+        z-index: 50;
+      }
+      .dropdown.show {
+        display: block;
+      }
+
+      .dd-grid {
+        display: grid;
+        gap: 10px;
+      }
+      .dd-grid.months {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .dd-grid.years {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .dd-item {
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+        border-radius: 14px;
+        padding: 12px 10px;
+        font-weight: 900;
+        cursor: pointer;
+        text-align: center;
+        font-size: 14px;
+      }
+      .dd-item:hover {
+        background: #111827;
+        color: #fff;
+        border-color: #111827;
+      }
+      .dd-item.active {
+        outline: 3px solid #4c3aff;
+        border-color: transparent;
+        background: #fff;
       }
     </style>
   </head>
-
   <body>
-    <div class="info-page">
-      <h1 class="info-title" data-i18n="info.title"></h1>
-      <li class="nav-lang-switch">
-        <button data-change-lang="mn" class="lang-text">MN</button>
-        <span class="divider">|</span>
-        <button data-change-lang="en" class="lang-text">EN</button>
-      </li>
-      <p class="info-subtitle" data-i18n="info.subtitle"></p>
+    <div class="wrap">
+      <!-- Calendar -->
+      <section class="card">
+        <div class="cal-header">
+          <div style="position: relative">
+            <!-- Year / Month тусдаа сонгоно -->
+            <div class="ym-wrap">
+              <button class="cal-title ym-btn" id="yearBtn" type="button">
+                2025
+              </button>
+              <span class="ym-sep">•</span>
+              <button class="cal-title ym-btn" id="monthBtn" type="button">
+                12-р сар
+              </button>
 
-      <div class="info-grid">
-        <div class="info-card">
-          <h3 data-i18n="info.card1.title"></h3>
-          <p data-i18n="info.card1.content"></p>
-        </div>
-        <div class="info-card">
-          <h3 data-i18n="info.card2.title"></h3>
-          <p data-i18n="info.card2.content"></p>
+              <div class="dropdown" id="yearDropdown"></div>
+              <div class="dropdown" id="monthDropdown"></div>
+            </div>
+
+            <div class="cal-sub">Өдөр дээр дарж мэдээллээ харна</div>
+          </div>
+
+          <div class="cal-actions">
+            <button class="btn secondary" id="prevBtn">◀ Өмнөх</button>
+            <button class="btn secondary" id="todayBtn">Өнөөдөр</button>
+            <button class="btn" id="nextBtn">Дараах ▶</button>
+          </div>
         </div>
 
-        <div class="info-card">
-          <h3 data-i18n="info.card3.title"></h3>
-          <p data-i18n="info.card3.content"></p>
+        <div class="weekdays">
+          <div>Да</div>
+          <div>Мя</div>
+          <div>Лх</div>
+          <div>Пү</div>
+          <div>Ба</div>
+          <div>Бя</div>
+          <div>Ня</div>
         </div>
 
-        <div class="info-card">
-          <h3 data-i18n="info.card4.title"></h3>
-          <p data-i18n="info.card4.content"></p>
-        </div>
-      </div>
+        <div class="days" id="daysGrid"></div>
+      </section>
 
+      <!-- Day events -->
+      <aside class="card">
+        <div class="side-title" id="selectedLabel">Өдөр сонгоно уу</div>
+        <div class="side-sub">Сонгосон өдрийн мэдээлэл/зар</div>
+        <div id="eventsList"></div>
+      </aside>
+    </div>
+
+    <script>
+      const events = [
+        {
+          date: "2025-12-16",
+          title: "Happy Hour",
+          time: "19:00",
+          type: "success",
+          desc: "Шинэ гишүүдийг угтах арга хэмжээ.",
+        },
+        {
+          date: "2025-12-18",
+          title: "Түнш байгууллагын уулзалт",
+          time: "15:00",
+          type: "info",
+          desc: "Partnership хэлэлцээрийн уулзалт.",
+        },
+        {
+          date: "2025-12-18",
+          title: "Контент зураг авалт",
+          time: "10:30",
+          type: "warn",
+          desc: "Постер, reel зураг авалт хийх.",
+        },
+        {
+          date: "2025-12-25",
+          title: "Амралтын өдөр",
+          time: "All day",
+          type: "danger",
+          desc: "Байгууллага хаалттай.",
+        },
+      ];
+
+      const monthNamesMN = [
+        "1-р сар",
+        "2-р сар",
+        "3-р сар",
+        "4-р сар",
+        "5-р сар",
+        "6-р сар",
+        "7-р сар",
+        "8-р сар",
+        "9-р сар",
+        "10-р сар",
+        "11-р сар",
+        "12-р сар",
+      ];
+
+      // ===== Fixed year range (эндээс өөрчилж болно) =====
+      const YEAR_START = 2000;
+      const YEAR_END = 2035;
+
+      const daysGrid = document.getElementById("daysGrid");
+      const selectedLabel = document.getElementById("selectedLabel");
+      const eventsList = document.getElementById("eventsList");
+
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const todayBtn = document.getElementById("todayBtn");
+
+      const yearBtn = document.getElementById("yearBtn");
+      const monthBtn = document.getElementById("monthBtn");
+      const yearDropdown = document.getElementById("yearDropdown");
+      const monthDropdown = document.getElementById("monthDropdown");
+
+      let viewDate = new Date();
+      let selectedDateStr = "";
+
+      function toISODate(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, "0");
+        const day = String(d.getDate()).padStart(2, "0");
+        return `${y}-${m}-${day}`;
+      }
+
+      function eventsByDate(dateStr) {
+        return events.filter((e) => e.date === dateStr);
+      }
+
+      function dotClass(type) {
+        if (type === "warn") return "dot warn";
+        if (type === "danger") return "dot danger";
+        if (type === "success") return "dot success";
+        return "dot";
+      }
+
+      function badgeClass(type) {
+        if (type === "warn") return "badge warn";
+        if (type === "danger") return "badge danger";
+        if (type === "success") return "badge success";
+        return "badge";
+      }
+
+      function renderSidebar(dateStr) {
+        selectedDateStr = dateStr;
+        selectedLabel.textContent = `Сонгосон өдөр: ${dateStr}`;
+
+        const list = eventsByDate(dateStr);
+        eventsList.innerHTML = "";
+
+        if (list.length === 0) {
+          eventsList.innerHTML = `<div class="empty">Энэ өдөр мэдээлэл байхгүй байна.</div>`;
+          return;
+        }
+
+        list
+          .sort((a, b) => (a.time || "").localeCompare(b.time || ""))
+          .forEach((e) => {
+            const el = document.createElement("div");
+            el.className = "event";
+            el.innerHTML = `
+            <div class="event-top">
+              <div class="event-title">${e.title}</div>
+              <span class="${badgeClass(e.type)}">${e.type.toUpperCase()}</span>
+            </div>
+            <div class="event-meta">${e.time ? e.time : ""}</div>
+            <div class="event-desc">${e.desc ? e.desc : ""}</div>
+          `;
+            eventsList.appendChild(el);
+          });
+      }
+
+      function renderCalendar() {
+        daysGrid.innerHTML = "";
+
+        const year = viewDate.getFullYear();
+        const month = viewDate.getMonth();
+
+        // Header дээр жил/сар тусдаа харагдана
+        yearBtn.textContent = `${year}`;
+        monthBtn.textContent = `${monthNamesMN[month]}`;
+
+        const firstDay = new Date(year, month, 1);
+        let startIndex = firstDay.getDay();
+        startIndex = startIndex === 0 ? 6 : startIndex - 1;
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const totalCells = 42;
+        const prevMonthDays = new Date(year, month, 0).getDate();
+
+        for (let i = 0; i < totalCells; i++) {
+          const cell = document.createElement("div");
+          cell.className = "day";
+
+          let dayNum, cellDate;
+
+          if (i < startIndex) {
+            dayNum = prevMonthDays - (startIndex - 1 - i);
+            cellDate = new Date(year, month - 1, dayNum);
+            cell.classList.add("muted");
+          } else if (i >= startIndex + daysInMonth) {
+            dayNum = i - (startIndex + daysInMonth) + 1;
+            cellDate = new Date(year, month + 1, dayNum);
+            cell.classList.add("muted");
+          } else {
+            dayNum = i - startIndex + 1;
+            cellDate = new Date(year, month, dayNum);
+          }
+
+          const iso = toISODate(cellDate);
+          const list = eventsByDate(iso);
+
+          cell.innerHTML = `<div class="day-num">${dayNum}</div>`;
+
+          if (list.length > 0) {
+            const dots = document.createElement("div");
+            dots.className = "dots";
+            list.slice(0, 4).forEach((ev) => {
+              const d = document.createElement("span");
+              d.className = dotClass(ev.type);
+              dots.appendChild(d);
+            });
+            cell.appendChild(dots);
+          }
+
+          if (iso === selectedDateStr) cell.classList.add("selected");
+
+          cell.addEventListener("click", () => {
+            selectedDateStr = iso;
+            renderCalendar();
+            renderSidebar(iso);
+          });
+
+          daysGrid.appendChild(cell);
+        }
+      }
+
+      // Prev/Next сар шилжих үед fixed year range-ийг барина
+      prevBtn.addEventListener("click", () => {
+        const nextView = new Date(
+          viewDate.getFullYear(),
+          viewDate.getMonth() - 1,
+          1
+        );
+        if (nextView.getFullYear() < YEAR_START) return;
+        viewDate = nextView;
+        renderCalendar();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const nextView = new Date(
+          viewDate.getFullYear(),
+          viewDate.getMonth() + 1,
+          1
+        );
+        if (nextView.getFullYear() > YEAR_END) return;
+        viewDate = nextView;
+        renderCalendar();
+      });
+
+      todayBtn.addEventListener("click", () => {
+        const now = new Date();
+        // хэрвээ өнөөдөр fixed range-ээс гадна байвал range-ийн эх рүү аваачна
+        const y = Math.min(Math.max(now.getFullYear(), YEAR_START), YEAR_END);
+        viewDate = new Date(y, now.getMonth(), 1);
+
+        const todayStr = toISODate(now);
+        selectedDateStr = todayStr;
+        renderCalendar();
+        renderSidebar(todayStr);
+      });
+
+      /* ===== Dropdown logic (Fixed years) ===== */
+      function closeDropdowns() {
+        yearDropdown.classList.remove("show");
+        monthDropdown.classList.remove("show");
+      }
+
+      function buildYearDropdown() {
+        const currentYear = viewDate.getFullYear();
+
+        yearDropdown.innerHTML = `
+        <div class="dd-grid years">
+          ${Array.from({ length: YEAR_END - YEAR_START + 1 }, (_, i) => {
+            const y = YEAR_START + i;
+            const active = y === currentYear ? "active" : "";
+            return `<button class="dd-item ${active}" data-year="${y}" type="button">${y}</button>`;
+          }).join("")}
+        </div>
+      `;
+
+        yearDropdown.querySelectorAll("[data-year]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const y = Number(btn.dataset.year);
+            viewDate = new Date(y, viewDate.getMonth(), 1);
+            closeDropdowns();
+            renderCalendar();
+          });
+        });
+      }
+
+      function buildMonthDropdown() {
+        const currentMonth = viewDate.getMonth();
+
+        monthDropdown.innerHTML = `
+        <div class="dd-grid months">
+          ${monthNamesMN
+            .map((name, idx) => {
+              const active = idx === currentMonth ? "active" : "";
+              return `<button class="dd-item ${active}" data-month="${idx}" type="button">${name}</button>`;
+            })
+            .join("")}
+        </div>
+      `;
+
+        monthDropdown.querySelectorAll("[data-month]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const m = Number(btn.dataset.month);
+            viewDate = new Date(viewDate.getFullYear(), m, 1);
+            closeDropdowns();
+            renderCalendar();
+          });
+        });
+      }
+
+      yearBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = yearDropdown.classList.contains("show");
+        closeDropdowns();
+        if (!isOpen) {
+          buildYearDropdown();
+          yearDropdown.classList.add("show");
+        }
+      });
+
+      monthBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = monthDropdown.classList.contains("show");
+        closeDropdowns();
+        if (!isOpen) {
+          buildMonthDropdown();
+          monthDropdown.classList.add("show");
+        }
+      });
+
+      document.addEventListener("click", closeDropdowns);
+      yearDropdown.addEventListener("click", (e) => e.stopPropagation());
+      monthDropdown.addEventListener("click", (e) => e.stopPropagation());
+
+      // Init
+      (function init() {
+        const todayStr = toISODate(new Date());
+        selectedDateStr = todayStr;
+
+        // viewDate-г fixed range-д барина
+        const now = new Date();
+        const y = Math.min(Math.max(now.getFullYear(), YEAR_START), YEAR_END);
+        viewDate = new Date(y, now.getMonth(), 1);
+
+        renderCalendar();
+        renderSidebar(todayStr);
+      })();
+    </script>
+    <div class="back-container">
       <a href="index.html" class="back-btn" data-i18n="info.back"></a>
     </div>
     <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
