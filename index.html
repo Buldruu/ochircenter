@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ochir Center</title>
 
-    <link rel="stylesheet" href="ngo-website/css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" type="image/png" href="website_logo.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
@@ -30,8 +30,7 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0E2A4A" />
   </head>
-  <body
-    <!-- Navigation Bar -->
+  <body>
     <nav class="navbar">
       <div class="nav-container">
         <div>
@@ -46,6 +45,10 @@
             <a href="#projects" class="nav-link" data-i18n="nav.projects"></a>
           </li>
           <li>
+            <link rel="stylesheet" href="uilchilgee.html"/>
+            <a href="uilchilgee.html" class="nav-link" data-i18n="nav.uilchilgee"></a>
+          </li>
+          <li>
             <a href="#contact" class="nav-link" data-i18n="nav.contact"></a>
           </li>
           <li>
@@ -55,16 +58,16 @@
               data-i18n="nav.membership"
             ></a>
           </li>
-          <li><link rel="stylesheet" href="medeelel.html"/>
-            <a href="medeelel.html" class="nav-link" data-i18n="nav.news"
-              ></a>
+          <li>
+            <link rel="stylesheet" href="medeelel.html" />
+            <a href="medeelel.html" class="nav-link" data-i18n="nav.news"></a>
           </li>
         </ul>
         <li class="nav-lang-switch">
-  <button data-change-lang="mn" class="lang-text">MN</button>
-  <span class="divider">|</span>
-  <button data-change-lang="en" class="lang-text">EN</button>
-</li>
+          <button data-change-lang="mn" class="lang-text">MN</button>
+          <span class="divider">|</span>
+          <button data-change-lang="en" class="lang-text">EN</button>
+        </li>
         <div class="hamburger">
           <span></span>
           <span></span>
@@ -125,9 +128,8 @@
         </div>
       </div>
     </section>
-    
-     <!-- Partners -->
-     <section class="partners-section" id="partners">
+    <!-- Partners -->
+    <section class="partners-section" id="partners">
       <h2 class="partners-title" data-i18n="partnership"></h2>
       <div class="partners-grid">
         <!-- Partner 1 -->
@@ -137,8 +139,8 @@
           <div class="partner-desc" data-i18n="company-about"></div>
         </div>
       </div>
-     </section>
-      
+    </section>
+
     <!-- Get Involved Section -->
     <section class="get-involved">
       <div class="container">
@@ -241,7 +243,7 @@
     ></script>
 
     <!-- Site script -->
-    <script src="ngo-website/js/script.js"></script>
+    <script src="js/script.js"></script>
 
     <!-- i18next -->
     <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
@@ -254,9 +256,9 @@
             "nav.mission": "Our Mission",
             "nav.projects": "Projects",
             "nav.contact": "Contact",
+            "nav.uilchilgee": "Services",
             "nav.membership": "Membership",
             "nav.news": "News",
-            
             "hero.title": "Welcome to Ochir Center",
             "hero.subtitle": "Let’s bring Mongolian production to the world",
 
@@ -324,9 +326,9 @@
             "nav.mission": "Манай Зорилго",
             "nav.projects": "Төслүүд",
             "nav.contact": "Холбоо барих",
+            "nav.uilchilgee": "Үйлчилгээ",
             "nav.membership": "Гишүүнчлэл",
             "nav.news": "Мэдээ",
-            
             "hero.title": "Очир Төвд тавтай морилно уу",
             "hero.subtitle":
               "Дэлхийн өнцөг булан бүрт үндэсний үйлдвэрлэлээ түгээцгээе",
@@ -344,9 +346,10 @@
 
             "partnership": "Манай хамтран ажилладаг байгууллагууд",
             "company-name": "Эс Ди Жи Консалтинг ХХК",
-            "company-about": "Эс Ди Жи консалтинг ХХК нь 2020 оноос эхлэн хууль зүйн судалгааны ажил хамтран эрхэлж байсан хуульч, өмгөөлөгчдийн нэгдэл бөгөөд судалгаанд суурилсан хуульчийн болон өмгөөллийн мэргэжлийн үйл ажиллагааг хүртээмжтэй хүргэх зорилгоор үүсгэн байгуулагдсан хуулийн фирм юм.",
+            "company-about":
+              "Эс Ди Жи консалтинг ХХК нь 2020 оноос эхлэн хууль зүйн судалгааны ажил хамтран эрхэлж байсан хуульч, өмгөөлөгчдийн нэгдэл бөгөөд судалгаанд суурилсан хуульчийн болон өмгөөллийн мэргэжлийн үйл ажиллагааг хүртээмжтэй хүргэх зорилгоор үүсгэн байгуулагдсан хуулийн фирм юм.",
             
-            "projects.title": "Манай төслүүд",
+              "projects.title": "Манай төслүүд",
             "projects.card1.title": "Олон улс дамнасан стратегийн түншлэл",
             "projects.card1.text":
               "Олон салбарын бизнесийг нэгтгэсэн хамтын ажиллагааны орчин.",
