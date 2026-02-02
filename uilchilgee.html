@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="servicesPage.title">Services | Ochir Center</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" href="website_logo.png" />
+
+  <!-- i18next -->
+  <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+
+  <style>
+    /* HERO */
+    .page-hero{
+      background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+      color:#fff;
+      padding:110px 20px;
+      text-align:center;
+    }
+    .page-hero h1{font-size:3rem;margin-bottom:10px}
+    .page-hero p{font-size:1.2rem;max-width:900px;margin:0 auto}
+
+    /* SERVICES */
+    .services-page{padding:80px 20px;background:#f8f9fa}
+    .services-page h2{text-align:center;font-size:2.5rem;color:#667eea;margin-bottom:40px}
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:30px;
+    }
+    @media(max-width:900px){.service-grid{grid-template-columns:1fr}}
+
+    .service-card{
+      background:#fff;
+      padding:30px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    .service-card h3{font-size:1.6rem;color:#667eea;margin-bottom:10px}
+    .service-card p{color:#555;line-height:1.7}
+    .service-card ul{margin-top:14px;padding-left:18px}
+    .service-card li{margin:6px 0}
+
+    /* PRICING */
+    .pricing{padding:80px 20px;background:#fff}
+    .pricing h2{text-align:center;font-size:2.5rem;color:#667eea;margin-bottom:20px}
+    .pricing-sub{font-size:1.6rem;font-weight:800;color:#667eea;margin:40px 0 20px;text-align:center}
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .price-card{
+      padding:30px;
+      border-radius:16px;
+      border:2px solid #e5e7eb;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    .price-card.featured{
+      background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+      color:#fff;
+      border:none;
+    }
+    .price-card h3{font-size:1.4rem;margin-bottom:8px}
+    .price{font-size:1.8rem;font-weight:900;margin-bottom:10px}
+    .price-card ul{padding-left:18px;margin-top:10px}
+    .price-card li{margin:6px 0}
+
+    .price-btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:12px 20px;
+      border-radius:8px;
+      background:#667eea;
+      color:#fff;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .price-card.featured .price-btn{
+      background:rgba(255,255,255,.18);
+      border:2px solid rgba(255,255,255,.4);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-container">
+    <img class="logo" src="clipart.png" alt="Ochir Center"/>
+    <ul class="nav-menu">
+      <li><a href="index.html#home" class="nav-link" data-i18n="nav.about"></a></li>
+      <li><a href="index.html#mission" class="nav-link" data-i18n="nav.mission"></a></li>
+      <li><a href="index.html#projects" class="nav-link" data-i18n="nav.projects"></a></li>
+      <li><a href="uilchilgee.html" class="nav-link" data-i18n="nav.uilchilgee"></a></li>
+      <li><a href="index.html#contact" class="nav-link" data-i18n="nav.contact"></a></li>
+      <li><a href="medeelel.html" class="nav-link" data-i18n="nav.news"></a></li>
+    </ul>
+
+    <div class="nav-lang-switch">
+      <button data-change-lang="mn" class="lang-text">MN</button>
+      <span class="divider">|</span>
+      <button data-change-lang="en" class="lang-text">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <h1 data-i18n="servicesPage.hero.title"></h1>
+  <p data-i18n="servicesPage.hero.subtitle"></p>
+</section>
+
+<!-- SERVICES -->
+<section class="services-page">
+  <h2 data-i18n="servicesPage.section.title"></h2>
+
+  <div class="container service-grid">
+    <div class="service-card">
+      <h3 data-i18n="services.web.title"></h3>
+      <p data-i18n="services.web.text"></p>
+      <ul>
+        <li data-i18n="services.web.b1"></li>
+        <li data-i18n="services.web.b2"></li>
+        <li data-i18n="services.web.b3"></li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h3 data-i18n="services.media.title"></h3>
+      <p data-i18n="services.media.text"></p>
+      <ul>
+        <li data-i18n="services.media.b1"></li>
+        <li data-i18n="services.media.b2"></li>
+        <li data-i18n="services.media.b3"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <h2 data-i18n="pricing.title"></h2>
+
+  <div class="pricing-sub" data-i18n="pricing.web"></div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <h3>🟢 START</h3>
+      <div class="price">400,000₮ + 100,000₮/сар</div>
+      <ul>
+        <li>1–5 хуудастай вэб сайт</li>
+        <li>Mobile & desktop</li>
+        <li>Бэлэн загвар</li>
+        <li>Контент (1–2/сар)</li>
+        <li>Domain + hosting</li>
+        <li>Суурь аюулгүй байдал</li>
+        <li>📌 Гэрээ: 6–12 сар</li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <h3>🔵 STANDARD</h3>
+      <div class="price">600,000₮ + 120,000₮/сар</div>
+      <ul>
+        <li>5–10 хуудас</li>
+        <li>Custom дизайн</li>
+        <li>Контент (4/сар)</li>
+        <li>SEO суурь</li>
+        <li>Хурдны оптимизаци</li>
+        <li>Form / захиалга</li>
+        <li>📌 Гэрээ: 12 сар</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <h3>🟣 BUSINESS</h3>
+      <div class="price">800,000₮ + 150,000₮/сар</div>
+      <ul>
+        <li>10+ хуудас / dynamic</li>
+        <li>Admin panel</li>
+        <li>Захиалга, мессеж</li>
+        <li>SEO + Google index</li>
+        <li>Backup + security</li>
+        <li>Priority support</li>
+        <li>📌 Гэрээ: 12 сар</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-sub" data-i18n="pricing.app"></div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <h3>🟢 MOBILE APP (MVP)</h3>
+      <div class="price">1,100,000₮ + 120,000₮/сар</div>
+      <ul>
+        <li>Android эсвэл iOS</li>
+        <li>Энгийн UI/UX</li>
+        <li>Контент удирдлага</li>
+        <li>Store байршуулалт</li>
+        <li>📌 Гэрээ: 12 сар</li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <h3>🔵 BUSINESS APP</h3>
+      <div class="price">2,100,000₮ + 150,000₮/сар</div>
+      <ul>
+        <li>Android + iOS</li>
+        <li>Admin систем</li>
+        <li>Push notification</li>
+        <li>Security + backup</li>
+        <li>📌 Гэрээ: 12–18 сар</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- i18n -->
+<script>
+const resources={
+  mn:{translation:{
+    "nav.about":"Бидний тухай",
+    "nav.mission":"Манай Зорилго",
+    "nav.projects":"Төслүүд",
+    "nav.uilchilgee":"Үйлчилгээ",
+    "nav.contact":"Холбоо барих",
+    "nav.news":"Мэдээ",
+
+    "servicesPage.title":"Үйлчилгээ | Очир Төв",
+    "servicesPage.hero.title":"Social Marketing үйлчилгээ",
+    "servicesPage.hero.subtitle":"Web хөгжүүлэлт ба Media эвлүүлэг — нэг систем, бодит үр дүн",
+    "servicesPage.section.title":"Манай үйлчилгээ",
+
+    "services.web.title":"Web хөгжүүлэлт",
+    "services.web.text":"Вэб сайт, landing, mobile app хөгжүүлэлт.",
+    "services.web.b1":"SEO + analytics",
+    "services.web.b2":"Form + захиалга",
+    "services.web.b3":"Admin систем",
+
+    "services.media.title":"Media үйлдвэрлэл",
+    "services.media.text":"Reels, short video, фото/видео эвлүүлэг.",
+    "services.media.b1":"Контент төлөвлөгөө",
+    "services.media.b2":"Видео эвлүүлэг",
+    "services.media.b3":"Brand дизайн",
+
+    "pricing.title":"Үнийн санал",
+    "pricing.web":"🌐 Web хөгжүүлэлт",
+    "pricing.app":"📱 Mobile Application"
+  }},
+  en:{translation:{
+    "nav.about":"About",
+    "nav.mission":"Mission",
+    "nav.projects":"Projects",
+    "nav.uilchilgee":"Services",
+    "nav.contact":"Contact",
+    "nav.news":"News",
+
+    "servicesPage.title":"Services | Ochir Center",
+    "servicesPage.hero.title":"Social Marketing Services",
+    "servicesPage.hero.subtitle":"Web development & media production in one system",
+    "servicesPage.section.title":"Our Services",
+
+    "services.web.title":"Web Development",
+    "services.web.text":"Websites, landing pages and mobile apps.",
+    "services.web.b1":"SEO & analytics",
+    "services.web.b2":"Forms & orders",
+    "services.web.b3":"Admin system",
+
+    "services.media.title":"Media Production",
+    "services.media.text":"Reels, short videos, photo & video editing.",
+    "services.media.b1":"Content planning",
+    "services.media.b2":"Video editing",
+    "services.media.b3":"Brand design",
+
+    "pricing.title":"Pricing",
+    "pricing.web":"🌐 Web Development",
+    "pricing.app":"📱 Mobile Application"
+  }}
+};
+
+i18next.init({lng:localStorage.getItem("siteLang")||"mn",resources},()=>{
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    el.innerHTML=i18next.t(el.dataset.i18n);
+  });
+});
+
+document.querySelectorAll("[data-change-lang]").forEach(b=>{
+  b.onclick=()=>{localStorage.setItem("siteLang",b.dataset.changeLang);location.reload();}
+});
+</script>
+
+</body>
+</html>
